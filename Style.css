@@ -210,14 +210,12 @@ body {
   right: -50px;
 }
 
-/* ================================
-   7. GENEL SECTION YAPISI
-================================ */
+/* 7. GENEL SECTION YAPISI*/
 .section {
   padding: 5rem 2rem;
 }
 
-.section:nth-child(even) {
+.section:nth-child(odd){
   background-color: var(--color-surface);
 }
 
@@ -264,7 +262,6 @@ body {
 .bio-card {
   background-color: var(--color-surface);
   border: 1px solid #e0e4ea;
-  border-top: 3px solid var(--color-accent);
   padding: 1.5rem;
 }
 
@@ -311,10 +308,13 @@ body {
 }
 
 .album-card {
+  display: block; /* önemli: tüm alan tıklanabilir olur */
   background-color: var(--color-surface);
   border: 1px solid #e0e4ea;
   padding: 1.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: inherit; /* link rengi mavi olmasın */
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .album-card:hover {
@@ -322,26 +322,9 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.album-card--featured {
-  border-color: var(--color-accent);
-  position: relative;
-}
-
-.album-card--featured::before {
-  content: "★ En Çok Satan";
-  position: absolute;
-  top: -1px;
-  right: 1rem;
-  background-color: var(--color-accent);
-  color: #ffffff;
-  font-size: 0.7rem;
-  letter-spacing: 1px;
-  padding: 0.2rem 0.6rem;
-  text-transform: uppercase;
-}
-
 .album-year {
   font-size: 0.8rem;
+  font-family: Arial, Helvetica, sans-serif;
   color: var(--color-accent);
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
@@ -352,12 +335,6 @@ body {
   color: var(--color-text);
   margin-bottom: 0.75rem;
   letter-spacing: 1px;
-}
-
-.album-name a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.2s ease;
 }
 
 .album-name a:hover {
@@ -385,6 +362,15 @@ body {
   margin-bottom: 0.3rem;
 }
 
+.album-tracks li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.album-tracks li:hover {
+  color: var(--color-accent); /* mavimsi */
+}
+
 /* ================================
    10. DANSLAR
 ================================ */
@@ -400,9 +386,9 @@ body {
 }
 
 .dance-number {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
+  font-family: Arial, Helvetica, sans-serif;
   color: var(--color-accent);
-  font-weight: bold;
   opacity: 0.3;
   line-height: 1;
 }
@@ -416,9 +402,10 @@ body {
 
 .dance-year {
   font-size: 0.85rem;
+  font-family:Arial, Helvetica, sans-serif;
   color: var(--color-accent);
   letter-spacing: 2px;
-  border: 1px solid var(--color-accent);
+  border: 1px double var(--color-accent);
   padding: 0.2rem 0.6rem;
 }
 
@@ -664,4 +651,28 @@ body {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+ .scroll-top {
+  position: fixed;   /* EN KRİTİK SATIR */
+
+  bottom: 40px;      /* aşağıdan mesafe */
+  right: 40px;       /* sağdan mesafe */
+
+  width: 35px;
+  height: 35px;
+
+  background-color: var(--color-text);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 20px;
+
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
