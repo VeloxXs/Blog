@@ -15,10 +15,14 @@
   <header class="site-header">
     <div class="header-inner">
 
-      <div class="site-branding">
-        <h1 class="site-title">MJ Blog</h1>
-        <p class="site-tagline">King of Pop'un Dünyasına Hoş Geldiniz</p>
-      </div>
+      <a href="#" class="site-branding">
+        <span class="site-logo-mj">MJ</span>
+        <span class="site-logo-sep"></span>
+        <span class="site-logo-blog">
+          <span class="site-logo-blog-main">Blog</span>
+          <span class="site-logo-blog-sub">King of Pop</span>
+        </span>
+      </a>
 
       <nav class="main-nav">
         <button class="nav-toggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
@@ -30,48 +34,74 @@
           <li class="nav-item"><a href="#biography" class="nav-link">Biyografi</a></li>
           <li class="nav-item"><a href="#albums"    class="nav-link">Albümler</a></li>
           <li class="nav-item"><a href="#dances"    class="nav-link">Danslar</a></li>
+          <li class="nav-item"><a href="#artists"   class="nav-link">Sanatçılar</a></li>
         </ul>
+        <a href="https://tr.wikipedia.org/wiki/Michael_Jackson" target="_blank" class="nav-cta">Keşfet</a>
       </nav>
 
     </div>
   </header>
-  <!-- ========== /HEADER ========== -->
 
   <!-- ========== HERO ========== -->
   <section class="hero-section">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-overlay"></div>
     <div class="hero-container">
-
       <div class="hero-text-content">
-        <h1 class="hero-greeting">
-          Merhaba, ben
-          <span class="text-highlight-blue">Michael Jackson</span>.
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-line"></span>
+          <span class="hero-eyebrow-text">King of Pop &nbsp;·&nbsp; 1958 – 2009</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-title-thin">Michael</span>
+          <span class="hero-title-bold">Jackson</span>
         </h1>
-        <p class="hero-description">
-          Uzmanlık alanım:
-          <span class="text-highlight-blue">Pop Müziği ve Dans</span>
+        <p class="hero-subtitle">
+          Müziği, dansı ve sahneyi tek bir sanata<br>
+          dönüştüren, zamanın ötesine geçen ses.
         </p>
-        <div class="hero-cta-container">
-          <a href="https://tr.wikipedia.org/wiki/Michael_Jackson" class="btn-primary-blue" target="_blank">Biyografi</a>
-        </div>
-      </div>
-
-      <div class="hero-image-content">
-        <div class="circle-wrapper-outer">
-          <div class="abstract-pattern-left"></div>
-          <div class="abstract-pattern-right"></div>
-
-          <div class="circle-wrapper-inner">
-            <div class="blue-background"></div>
-            <!-- 1. Resim: varsayılan görünen -->
-            <img src="foto/açık.png" alt="Michael Jackson" class="profile-img" />
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-num">750M+</span>
+            <span class="hero-stat-lbl">Albüm Satışı</span>
           </div>
-
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">13×</span>
+            <span class="hero-stat-lbl">Grammy Ödülü</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">45</span>
+            <span class="hero-stat-lbl">Yıllık Kariyer</span>
+          </div>
+        </div>
+        <div class="hero-cta-container">
+          <a href="https://tr.wikipedia.org/wiki/Michael_Jackson" class="hero-btn-primary" target="_blank">
+            Biyografiyi Oku
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#albums" class="hero-btn-ghost">Albümleri Keşfet</a>
         </div>
       </div>
-
+      <div class="hero-image-content">
+        <div class="hero-img-ring hero-img-ring--outer"></div>
+        <div class="hero-img-ring hero-img-ring--mid"></div>
+        <div class="hero-img-frame">
+          <div class="hero-img-glow"></div>
+          <img src="foto/açık.png" alt="Michael Jackson" class="hero-portrait" />
+        </div>
+        <div class="hero-img-badge">
+          <span class="hero-img-badge-icon">♪</span>
+          <span class="hero-img-badge-text">King of Pop</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span class="hero-scroll-text">Aşağı Kaydır</span>
+      <div class="hero-scroll-line"></div>
     </div>
   </section>
-  <!-- ========== /HERO ========== -->
 
   <!-- ========== MAIN ========== -->
   <main class="site-main">
@@ -79,11 +109,8 @@
     <!-- ========== BİYOGRAFİ ========== -->
     <section id="biography" class="section biography-section">
       <div class="section-inner">
-
         <h2 class="section-title">Biyografi</h2>
-
         <div class="bio-grid">
-
           <div class="bio-text">
             <p>
               Michael Joseph Jackson, 29 Ağustos 1958'de Indiana, Gary'de dünyaya geldi.
@@ -101,238 +128,449 @@
               insancıl projeleriyle dünyayı etkilemeye devam etmektedir.
             </p>
           </div>
-
           <aside class="bio-card">
             <h3 class="bio-card-title">Kısa Bilgiler</h3>
             <ul class="bio-card-list">
-              <li>
-                <span class="bio-card-label">Doğum</span>
-                <span class="bio-card-value">29 Ağustos 1958</span>
-              </li>
-              <li>
-                <span class="bio-card-label">Doğum Yeri</span>
-                <span class="bio-card-value">Gary, Indiana, ABD</span>
-              </li>
-              <li>
-                <span class="bio-card-label">Meslek</span>
-                <span class="bio-card-value">Şarkıcı, Dansçı, Söz Yazarı</span>
-              </li>
-              <li>
-                <span class="bio-card-label">Aktif Yıllar</span>
-                <span class="bio-card-value">1964 – 2009</span>
-              </li>
-              <li>
-                <span class="bio-card-label">Lakap</span>
-                <span class="bio-card-value">King of Pop</span>
-              </li>
+              <li><span class="bio-card-label">Doğum</span><span class="bio-card-value">29 Ağustos 1958</span></li>
+              <li><span class="bio-card-label">Doğum Yeri</span><span class="bio-card-value">Gary, Indiana, ABD</span></li>
+              <li><span class="bio-card-label">Meslek</span><span class="bio-card-value">Şarkıcı, Dansçı, Söz Yazarı</span></li>
+              <li><span class="bio-card-label">Aktif Yıllar</span><span class="bio-card-value">1964 – 2009</span></li>
+              <li><span class="bio-card-label">Lakap</span><span class="bio-card-value">King of Pop</span></li>
             </ul>
           </aside>
-
         </div>
       </div>
     </section>
-    <!-- ========== /BİYOGRAFİ ========== -->
 
     <!-- ========== ALBÜMLER ========== -->
     <section id="albums" class="section albums-section">
       <div class="section-inner">
-
         <h2 class="section-title">Efsanevi Albümler</h2>
-
         <div class="albums-grid">
           <article class="album-card">
             <div class="album-year">1979</div>
-            <h3 class="album-name">Off the Wall</h3> 
-            <p class="album-desc">
-              Solo kariyerinin ilk büyük atılımı. Funk, soul ve disco etkisiyle
-              şekillenen albüm, Jackson'ı bağımsız bir sanatçı olarak dünyaya tanıttı.
-            </p>
+            <h3 class="album-name">Off the Wall</h3>
+            <p class="album-desc">Solo kariyerinin ilk büyük atılımı. Funk, soul ve disco etkisiyle şekillenen albüm, Jackson'ı bağımsız bir sanatçı olarak dünyaya tanıttı.</p>
             <ul class="album-tracks">
               <li><a href="https://www.youtube.com/watch?v=yURRmWtbTbo" target="_blank">Don't Stop 'Til You Get Enough</a></li>
               <li><a href="https://www.youtube.com/watch?v=5X-Mrc2l1d0" target="_blank">Rock with You</a></li>
-              <li><a href= "https://www.youtube.com/watch?v=_BfcRjZn6y4" target="_blank"> Off the Wall</a></li>
+              <li><a href="https://www.youtube.com/watch?v=_BfcRjZn6y4" target="_blank">Off the Wall</a></li>
             </ul>
           </article>
-
           <article class="album-card">
             <div class="album-year">1982</div>
-            <h3 class="album-name">Thriller
-            </h3>
-            <p class="album-desc">
-              Tarihin en çok satan albümü. 66 milyonun üzerinde kopya satışıyla
-              müzik tarihinin zirvesinde yer alır. Her şarkısı hit, her sahnesi efsane.
-            </p>
+            <h3 class="album-name">Thriller</h3>
+            <p class="album-desc">Tarihin en çok satan albümü. 66 milyonun üzerinde kopya satışıyla müzik tarihinin zirvesinde yer alır. Her şarkısı hit, her sahnesi efsane.</p>
             <ul class="album-tracks">
               <li><a href="https://www.youtube.com/watch?v=sOnqjkJTMaA" target="_blank">Thriller</a></li>
               <li><a href="https://www.youtube.com/watch?v=Zi_XLOBDo_Y" target="_blank">Billie Jean</a></li>
               <li><a href="https://www.youtube.com/watch?v=oRdxUFDoQe0" target="_blank">Beat It</a></li>
             </ul>
           </article>
-
           <article class="album-card">
             <div class="album-year">1987</div>
             <h3 class="album-name">Bad</h3>
-            </h3>
-            <p class="album-desc">
-              Tek albümden 5 adet Billboard Hot 100 zirvesi. Jackson'ın sahne
-              hakimiyetini ve prodüksiyon olgunluğunu zirveye taşıdığı dönem.
-            </p>
+            <p class="album-desc">Tek albümden 5 adet Billboard Hot 100 zirvesi. Jackson'ın sahne hakimiyetini ve prodüksiyon olgunluğunu zirveye taşıdığı dönem.</p>
             <ul class="album-tracks">
               <li><a href="https://www.youtube.com/watch?v=dsUXAEzaC3Q" target="_blank">Bad</a></li>
               <li><a href="https://www.youtube.com/watch?v=PivWY9wn5ps" target="_blank">Man in the Mirror</a></li>
               <li><a href="https://www.youtube.com/watch?v=HzZ_urpj4As" target="_blank">The Way You Make Me Feel</a></li>
             </ul>
           </article>
-
           <article class="album-card">
             <div class="album-year">1991</div>
             <h3 class="album-name">Dangerous</h3>
-            <p class="album-desc">
-              New Jack Swing akımının en güçlü temsilcilerinden. Sosyal mesajları
-              müzikle harmanlayan, her dinleyişte yeni bir şey keşfettiren albüm.
-            </p>
+            <p class="album-desc">New Jack Swing akımının en güçlü temsilcilerinden. Sosyal mesajları müzikle harmanlayan, her dinleyişte yeni bir şey keşfettiren albüm.</p>
             <ul class="album-tracks">
               <li><a href="https://www.youtube.com/watch?v=F2AitTPI5U0" target="_blank">Black or White</a></li>
               <li><a href="https://www.youtube.com/watch?v=LeiFF0gvqcc" target="_blank">Remember the Time</a></li>
               <li><a href="https://www.youtube.com/watch?v=BWf-eARnf6U" target="_blank">Heal the World</a></li>
             </ul>
           </article>
-
         </div>
       </div>
     </section>
-    <!-- ========== /ALBÜMLER ========== -->
 
     <!-- ========== DANSLAR ========== -->
     <section id="dances" class="section dances-section">
       <div class="section-inner">
-
         <h2 class="section-title">İkonik Danslar</h2>
-
         <div class="dances-list">
-
           <div class="dance-item">
             <div class="dance-header">
               <span class="dance-number">01</span>
               <h3 class="dance-name">Moonwalk</h3>
               <span class="dance-year">1983</span>
             </div>
-            <p class="dance-desc">
-              25 Mart 1983'te Motown'un 25. yıl dönümü galasında ilk kez sergilendi.
-              Ayaklar ileri giderken vücut geri kayan bu yanılsama, dans dünyasını
-              sonsuza dek değiştirdi. Televizyon tarihinin en çok izlenen anlarından biri.
-            </p>
+            <p class="dance-desc">25 Mart 1983'te Motown'un 25. yıl dönümü galasında ilk kez sergilendi. Ayaklar ileri giderken vücut geri kayan bu yanılsama, dans dünyasını sonsuza dek değiştirdi.</p>
           </div>
-
           <hr class="dance-divider">
-
           <div class="dance-item">
             <div class="dance-header">
               <span class="dance-number">02</span>
               <h3 class="dance-name">The Robot</h3>
               <span class="dance-year">1974</span>
             </div>
-            <p class="dance-desc">
-              Jackson 5 döneminde geliştirdiği mekanik beden kontrolü. Her eklemi
-              ayrı ayrı ve hassas biçimde kontrol etme yeteneği, izleyiciyi
-              gerçek bir robotu izlediğine inandırıyordu.
-            </p>
+            <p class="dance-desc">Jackson 5 döneminde geliştirdiği mekanik beden kontrolü. Her eklemi ayrı ayrı ve hassas biçimde kontrol etme yeteneği, izleyiciyi gerçek bir robotu izlediğine inandırıyordu.</p>
           </div>
-
           <hr class="dance-divider">
-
           <div class="dance-item">
             <div class="dance-header">
               <span class="dance-number">03</span>
               <h3 class="dance-name">Anti-Gravity Lean</h3>
               <span class="dance-year">1987</span>
             </div>
-            <p class="dance-desc">
-              "Smooth Criminal" klibinde sergilenen 45 derecelik öne eğilme hareketi.
-              Fizik kurallarını zorladığı görünen bu hareket için özel patentli ayakkabı
-              ve sahne mekanizması geliştirdi.
-            </p>
+            <p class="dance-desc">"Smooth Criminal" klibinde sergilenen 45 derecelik öne eğilme hareketi. Fizik kurallarını zorladığı görünen bu hareket için özel patentli ayakkabı ve sahne mekanizması geliştirdi.</p>
           </div>
-
           <hr class="dance-divider">
-
           <div class="dance-item">
             <div class="dance-header">
               <span class="dance-number">04</span>
               <h3 class="dance-name">The Spin &amp; Toe Stand</h3>
               <span class="dance-year">1988</span>
             </div>
-            <p class="dance-desc">
-              Hızlı dönüşün ardından parmak uçlarında ani duruş. Bale tekniğini
-              sokak dansıyla birleştiren bu hareket, Jackson'ın dans eğitimine
-              ne kadar ciddi yaklaştığının en açık göstergesiydi.
-            </p>
+            <p class="dance-desc">Hızlı dönüşün ardından parmak uçlarında ani duruş. Bale tekniğini sokak dansıyla birleştiren bu hareket, Jackson'ın dans eğitimine ne kadar ciddi yaklaştığının en açık göstergesiydi.</p>
           </div>
-
         </div>
       </div>
     </section>
-    <!-- ========== /DANSLAR ========== -->
+
+    <!-- ========== SANATÇILAR ========== -->
+    <section id="artists" class="section artists-section">
+      <div class="section-inner">
+
+        <h2 class="section-title">Diğer Efsaneler</h2>
+
+        <!-- Filtre Butonları -->
+        <div class="artists-filter">
+          <button class="filter-btn active" data-filter="all">Tümü</button>
+          <button class="filter-btn" data-filter="pop">Pop</button>
+          <button class="filter-btn" data-filter="rock">Rock</button>
+          <button class="filter-btn" data-filter="rnb">R&amp;B / Soul</button>
+          <button class="filter-btn" data-filter="hiphop">Hip-Hop</button>
+        </div>
+
+        <div class="artists-grid">
+
+          <!-- Featured: Prince -->
+          <article class="artist-card featured" data-genre="pop rnb">
+            <div>
+              <div class="artist-genre"><span class="artist-genre-dot"></span>Pop · R&amp;B · Funk</div>
+              <div class="artist-avatar-row">
+                <div class="artist-avatar-placeholder">P</div>
+                <div class="artist-name-block">
+                  <h3 class="artist-name">Prince</h3>
+                  <span class="artist-years">1958 – 2016</span>
+                </div>
+              </div>
+              <p class="artist-desc">
+                Gitar virtüözü, prodüktör, söz yazarı. Funk, R&amp;B ve rock'ı ustaca harmanladı.
+                <em>Purple Rain</em> ile müzik tarihinin en ikonik albümlerinden birini yarattı.
+                Sahne performanslarındaki enerji ve çok yönlülüğüyle dönemin en özgün sesiydi.
+              </p>
+              <div class="artist-stats">
+                <div class="artist-stat">
+                  <span class="artist-stat-value">39+</span>
+                  <span class="artist-stat-label">Stüdyo Albümü</span>
+                </div>
+                <div class="artist-stat">
+                  <span class="artist-stat-value">150M+</span>
+                  <span class="artist-stat-label">Satış</span>
+                </div>
+                <div class="artist-stat">
+                  <span class="artist-stat-value">7×</span>
+                  <span class="artist-stat-label">Grammy</span>
+                </div>
+              </div>
+              <a href="https://tr.wikipedia.org/wiki/Prince_(m%C3%BCzisyen)" target="_blank" class="artist-link">Keşfet →</a>
+            </div>
+            <div class="featured-right">
+              <blockquote class="featured-quote">
+                "Müzik evrenin dilidir — ben sadece o dili anadilim olarak konuşuyorum."
+              </blockquote>
+              <div class="artist-stats" style="flex-direction:column; gap:0.8rem; border:none; padding:0;">
+                <div style="font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.3); font-family:'Helvetica Neue',sans-serif; margin-bottom:0.3rem;">Öne Çıkan Eserler</div>
+                <div style="font-size:0.88rem; color:rgba(255,255,255,0.6); line-height:2;">
+                  Purple Rain &nbsp;·&nbsp; Sign o' the Times<br>
+                  Kiss &nbsp;·&nbsp; When Doves Cry<br>
+                  Raspberry Beret
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Madonna -->
+          <article class="artist-card" data-genre="pop">
+            <div class="artist-genre"><span class="artist-genre-dot"></span>Pop · Dance</div>
+            <div class="artist-avatar-row">
+              <div class="artist-avatar-placeholder">M</div>
+              <div class="artist-name-block">
+                <h3 class="artist-name">Madonna</h3>
+                <span class="artist-years">1958 – günümüz</span>
+              </div>
+            </div>
+            <p class="artist-desc">
+              "Queen of Pop" lakabıyla anılan Madonna, müzik, moda ve sahne sanatını birleştirerek pop kültürünü yeniden yazdı. Sürekli dönüşen imajı ve sınır tanımayan yaratıcılığıyla efsaneleşti.
+            </p>
+            <div class="artist-stats">
+              <div class="artist-stat"><span class="artist-stat-value">14</span><span class="artist-stat-label">Albüm</span></div>
+              <div class="artist-stat"><span class="artist-stat-value">300M+</span><span class="artist-stat-label">Satış</span></div>
+            </div>
+            <a href="https://tr.wikipedia.org/wiki/Madonna_(m%C3%BCzisyen)" target="_blank" class="artist-link">Keşfet →</a>
+          </article>
+
+          <!-- David Bowie -->
+          <article class="artist-card" data-genre="rock pop">
+            <div class="artist-genre"><span class="artist-genre-dot"></span>Rock · Glam · Pop</div>
+            <div class="artist-avatar-row">
+              <div class="artist-avatar-placeholder">B</div>
+              <div class="artist-name-block">
+                <h3 class="artist-name">David Bowie</h3>
+                <span class="artist-years">1947 – 2016</span>
+              </div>
+            </div>
+            <p class="artist-desc">
+              Ziggy Stardust'tan Thin White Duke'a uzanan sahne kişilikleriyle rock tarihinin en karizmatik şekil değiştiricisi. Her albümde yeni bir ses, yeni bir kimlik, sonsuz bir yaratıcılık.
+            </p>
+            <div class="artist-stats">
+              <div class="artist-stat"><span class="artist-stat-value">27</span><span class="artist-stat-label">Albüm</span></div>
+              <div class="artist-stat"><span class="artist-stat-value">140M+</span><span class="artist-stat-label">Satış</span></div>
+            </div>
+            <a href="https://tr.wikipedia.org/wiki/David_Bowie" target="_blank" class="artist-link">Keşfet →</a>
+          </article>
+
+          <!-- Whitney Houston -->
+          <article class="artist-card" data-genre="rnb pop">
+            <div class="artist-genre"><span class="artist-genre-dot"></span>R&amp;B · Soul · Pop</div>
+            <div class="artist-avatar-row">
+              <div class="artist-avatar-placeholder">W</div>
+              <div class="artist-name-block">
+                <h3 class="artist-name">Whitney Houston</h3>
+                <span class="artist-years">1963 – 2012</span>
+              </div>
+            </div>
+            <p class="artist-desc">
+              Tarihin en güçlü seslerinden biri. "I Will Always Love You" ile sıradan bir şarkıyı sanat eserine dönüştürdü. Teknik mükemmelliği ve duygusal derinliğiyle eşsiz bir vokalist.
+            </p>
+            <div class="artist-stats">
+              <div class="artist-stat"><span class="artist-stat-value">7</span><span class="artist-stat-label">Albüm</span></div>
+              <div class="artist-stat"><span class="artist-stat-value">200M+</span><span class="artist-stat-label">Satış</span></div>
+              <div class="artist-stat"><span class="artist-stat-value">6×</span><span class="artist-stat-label">Grammy</span></div>
+            </div>
+            <a href="https://tr.wikipedia.org/wiki/Whitney_Houston" target="_blank" class="artist-link">Keşfet →</a>
+          </article>
+
+          <!-- Tupac -->
+          <article class="artist-card" data-genre="hiphop">
+            <div class="artist-genre"><span class="artist-genre-dot"></span>Hip-Hop · Rap</div>
+            <div class="artist-avatar-row">
+              <div class="artist-avatar-placeholder">2</div>
+              <div class="artist-name-block">
+                <h3 class="artist-name">2Pac</h3>
+                <span class="artist-years">1971 – 1996</span>
+              </div>
+            </div>
+            <p class="artist-desc">
+              Hip-hop'un şairi, sesi ve vicdanı. Kısa hayatına sığdırdığı on binlerce satır sözle toplumsal adaletsizliği, aşkı ve sokaği anlatan nesil sesi. Etkisi ölümünden sonra da büyüdü.
+            </p>
+            <div class="artist-stats">
+              <div class="artist-stat"><span class="artist-stat-value">5</span><span class="artist-stat-label">Stüdyo Albümü</span></div>
+              <div class="artist-stat"><span class="artist-stat-value">75M+</span><span class="artist-stat-label">Satış</span></div>
+            </div>
+            <a href="https://tr.wikipedia.org/wiki/Tupac_Shakur" target="_blank" class="artist-link">Keşfet →</a>
+          </article>
+
+          <!-- Freddie Mercury -->
+          <article class="artist-card" data-genre="rock">
+            <div class="artist-genre"><span class="artist-genre-dot"></span>Rock · Arena Rock</div>
+            <div class="artist-avatar-row">
+              <div class="artist-avatar-placeholder">F</div>
+              <div class="artist-name-block">
+                <h3 class="artist-name">Freddie Mercury</h3>
+                <span class="artist-years">1946 – 1991</span>
+              </div>
+            </div>
+            <p class="artist-desc">
+              Queen'in sesi ve kalbi. Dört oktavlık eşsiz ses aralığı ve sahne karizmasıyla rock tarihinin tartışmasız en büyük performansçısı. Bohemian Rhapsody ile müzik sınırlarını parçaladı.
+            </p>
+            <div class="artist-stats">
+              <div class="artist-stat"><span class="artist-stat-value">15</span><span class="artist-stat-label">Queen Albümü</span></div>
+              <div class="artist-stat"><span class="artist-stat-value">300M+</span><span class="artist-stat-label">Satış</span></div>
+            </div>
+            <a href="https://tr.wikipedia.org/wiki/Freddie_Mercury" target="_blank" class="artist-link">Keşfet →</a>
+          </article>
+
+          <!-- Beyoncé -->
+          <article class="artist-card" data-genre="rnb pop">
+            <div class="artist-genre"><span class="artist-genre-dot"></span>R&amp;B · Pop · Soul</div>
+            <div class="artist-avatar-row">
+              <div class="artist-avatar-placeholder">B</div>
+              <div class="artist-name-block">
+                <h3 class="artist-name">Beyoncé</h3>
+                <span class="artist-years">1981 – günümüz</span>
+              </div>
+            </div>
+            <p class="artist-desc">
+              Modern pop'un kraliçesi. Destiny's Child'dan solo kariyerine uzanan yolculuğunda her adımı yeni bir standart belirledi. Lemonade ile sanatsal anlatıyı ve özgürlüğü yeniden tanımladı.
+            </p>
+            <div class="artist-stats">
+              <div class="artist-stat"><span class="artist-stat-value">8</span><span class="artist-stat-label">Albüm</span></div>
+              <div class="artist-stat"><span class="artist-stat-value">32×</span><span class="artist-stat-label">Grammy</span></div>
+            </div>
+            <a href="https://tr.wikipedia.org/wiki/Beyonc%C3%A9" target="_blank" class="artist-link">Keşfet →</a>
+          </article>
+
+          <!-- Eminem -->
+          <article class="artist-card" data-genre="hiphop">
+            <div class="artist-genre"><span class="artist-genre-dot"></span>Hip-Hop · Rap</div>
+            <div class="artist-avatar-row">
+              <div class="artist-avatar-placeholder">E</div>
+              <div class="artist-name-block">
+                <h3 class="artist-name">Eminem</h3>
+                <span class="artist-years">1972 – günümüz</span>
+              </div>
+            </div>
+            <p class="artist-desc">
+              Hip-hop tarihinin en çok satan solisti. Lirik yoğunluğu, teknik hızı ve otobiyografik dürüstlüğüyle rap müziğini ana akıma taşıdı. The Marshall Mathers LP, neslin manifestosu oldu.
+            </p>
+            <div class="artist-stats">
+              <div class="artist-stat"><span class="artist-stat-value">11</span><span class="artist-stat-label">Albüm</span></div>
+              <div class="artist-stat"><span class="artist-stat-value">220M+</span><span class="artist-stat-label">Satış</span></div>
+              <div class="artist-stat"><span class="artist-stat-value">15×</span><span class="artist-stat-label">Grammy</span></div>
+            </div>
+            <a href="https://tr.wikipedia.org/wiki/Eminem" target="_blank" class="artist-link">Keşfet →</a>
+          </article>
+
+        </div>
+
+        <div class="artists-footer">
+          <a href="https://tr.wikipedia.org/wiki/Kategori:Pop_m%C3%BCzis%C3%BCyenler" target="_blank" class="btn-outline-blue">Tüm Sanatçıları Keşfet</a>
+        </div>
+
+      </div>
+    </section>
+    <!-- ========== /SANATÇILAR ========== -->
 
   </main>
-  <!-- ========== /MAIN ========== -->
 
   <!-- ========== FOOTER ========== -->
   <footer class="site-footer">
     <div class="footer-inner">
-
       <div class="footer-top">
         <div class="footer-brand">
           <h2 class="footer-logo">MJ Blog</h2>
-          <p class="footer-desc">
-            King of Pop'un müziğini, dansını ve mirasını yaşatmak için
-            hazırlanmış bir hayran sitesidir.
-          </p>
+          <p class="footer-desc">King of Pop'un müziğini, dansını ve mirasını yaşatmak için hazırlanmış bir hayran sitesidir.</p>
         </div>
-
         <nav class="footer-nav" aria-label="Footer navigasyonu">
           <h3 class="footer-nav-title">Hızlı Erişim</h3>
           <ul class="footer-nav-list">
             <li><a href="#biography" class="footer-nav-link">Biyografi</a></li>
             <li><a href="#albums"    class="footer-nav-link">Albümler</a></li>
             <li><a href="#dances"    class="footer-nav-link">Danslar</a></li>
+            <li><a href="#artists"   class="footer-nav-link">Sanatçılar</a></li>
           </ul>
         </nav>
       </div>
-
       <hr class="footer-divider">
-
       <div class="footer-bottom">
         <p class="footer-copy">&copy; 2025 MJ Blog — Tüm hakları saklıdır.</p>
-        <p class="footer-tribute">
-          <span class="footer-heart">♥</span>
-          Michael Jackson'ın anısına saygıyla.
-        </p>
+        <p class="footer-tribute"><span class="footer-heart">♥</span>Michael Jackson'ın anısına saygıyla.</p>
       </div>
-
     </div>
   </footer>
-  <!-- ========== /FOOTER ========== -->
 
   <!-- ========== JAVASCRIPT ========== -->
   <script>
+    // Hero canvas particles
+    (function(){
+      const canvas = document.getElementById('heroCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let W, H, particles = [];
+
+      function resize(){
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      function rand(min, max){ return Math.random()*(max-min)+min; }
+
+      for(let i=0; i<70; i++){
+        particles.push({
+          x: rand(0,1), y: rand(0,1),
+          r: rand(0.5, 2.2),
+          vx: rand(-0.08,0.08), vy: rand(-0.12,-0.04),
+          alpha: rand(0.2, 0.7)
+        });
+      }
+
+      function draw(){
+        ctx.clearRect(0,0,W,H);
+        particles.forEach(p => {
+          p.x += p.vx/W*100;
+          p.y += p.vy/H*100;
+          if(p.y < -0.02) p.y = 1.02;
+          if(p.x < -0.02) p.x = 1.02;
+          if(p.x >  1.02) p.x = -0.02;
+          ctx.beginPath();
+          ctx.arc(p.x*W, p.y*H, p.r, 0, Math.PI*2);
+          ctx.fillStyle = `rgba(39,187,245,${p.alpha})`;
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // Header scroll efekti
+    const siteHeader = document.querySelector('.site-header');
+    window.addEventListener('scroll', function () {
+      siteHeader.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // Hamburger menu
     const toggle  = document.querySelector('.nav-toggle');
     const navList = document.querySelector('.nav-list');
-
     toggle.addEventListener('click', function () {
       navList.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', navList.classList.contains('is-open'));
     });
-
     document.querySelectorAll('.nav-link').forEach(function (link) {
       link.addEventListener('click', function () {
         navList.classList.remove('is-open');
         toggle.setAttribute('aria-expanded', false);
       });
     });
-  </script>
-  <!-- ========== /JAVASCRIPT ========== -->
 
-<a href="#" class="scroll-top">↑</a>
+    // Artist filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const artistCards = document.querySelectorAll('.artist-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function () {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        const filter = this.dataset.filter;
+
+        artistCards.forEach(card => {
+          if (filter === 'all') {
+            card.classList.remove('hidden');
+          } else {
+            const genres = card.dataset.genre || '';
+            if (genres.includes(filter)) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          }
+        });
+      });
+    });
+  </script>
+
+  <a href="#" class="scroll-top">↑</a>
 </body>
 </html>
