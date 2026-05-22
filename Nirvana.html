@@ -4,6 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="description" content="Nirvana grubunun, Kurt Cobain'in hayatı, grunge müzik devrimi, efsanevi albümleri ve kültürel mirasını anlatan geniş kapsamlı müzik bloğu.">
+  <meta name="keywords" content="Nirvana, Kurt Cobain, Grunge, Alternatif Rock, Nevermind, Smells Like Teen Spirit, Müzik, Biyografi">
+  <meta name="author" content="Sinan">
+  
   <link rel="icon" type="image/jpeg" href="foto/favicon.jpeg">
   <title>Nirvana Blog</title>
   <link rel="stylesheet" href="style.css">
@@ -19,19 +24,25 @@
         <p class="site-tagline">Grunge Efsanesinin Dünyasına Hoş Geldiniz</p>
       </div>
 
-      <nav class="main-nav">
-        <button class="nav-toggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
+      <div class="nav-and-button-container">
+        <nav class="main-nav">
+          <button class="nav-toggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </button>
+          <ul class="nav-list">
+            <li class="nav-item"><a href="Blog.html" class="nav-link">MJ Sayfasına Dön</a></li>
+            <li class="nav-item"><a href="#biography" class="nav-link">Biyografi</a></li>
+            <li class="nav-item"><a href="#albums"    class="nav-link">Albümler</a></li>
+            <li class="nav-item"><a href="#legacy"    class="nav-link">Mirası</a></li>
+          </ul>
+        </nav>
+        
+        <button id="theme-toggle" class="theme-btn">
+          <span class="toggle-icon">&#x2600;</span> <span class="toggle-text">Gece Modu</span>
         </button>
-        <ul class="nav-list">
-          <li class="nav-item"><a href="Blog.html" class="nav-link">MJ Sayfasına Dön</a></li>
-          <li class="nav-item"><a href="#biography" class="nav-link">Biyografi</a></li>
-          <li class="nav-item"><a href="#albums"    class="nav-link">Albümler</a></li>
-          <li class="nav-item"><a href="#legacy"    class="nav-link">Mirası</a></li>
-        </ul>
-      </nav>
+      </div>
 
     </div>
   </header>
@@ -59,7 +70,7 @@
 
           <div class="circle-wrapper-inner">
             <div class="blue-background"></div>
-            <img src="foto/nirvana.png" alt="Nirvana" class="profile-img nirvana-img" />
+            <img src="foto/nirvana.png" alt="Nirvana Grubu Profil Fotoğrafı" class="profile-img nirvana-img" />
           </div>
 
         </div>
@@ -67,6 +78,7 @@
 
     </div>
   </section>
+
   <main class="site-main">
 
     <section id="biography" class="section biography-section">
@@ -115,7 +127,7 @@
               </li>
               <li>
                 <span class="bio-card-label">Kilit Üyeler</span>
-                <span class="bio-card-value">Kurt, Krist, Dave</span>
+                <span class="nav-brand">Kurt, Krist, Dave</span>
               </li>
             </ul>
           </aside>
@@ -123,6 +135,7 @@
         </div>
       </div>
     </section>
+
     <section id="albums" class="section albums-section">
       <div class="section-inner">
 
@@ -188,6 +201,7 @@
         </div>
       </div>
     </section>
+
     <section id="legacy" class="section dances-section">
       <div class="section-inner">
 
@@ -238,20 +252,20 @@
         </div>
       </div>
     </section>
-    </main>
+
+  </main>
+
   <footer class="site-footer">
     <div class="footer-inner">
-
       <div class="footer-top">
         <div class="footer-brand">
           <h2 class="footer-logo">NİRVANA BLOG</h2>
           <p class="footer-desc">
-            Nirvana'nın müziğini, felsefesini ve kültürel mirasını yaşatmak için
-            hazırlanmış bir hayran sitesidir.
+            <strong>Misyonumuz:</strong> Nirvana ve diğer müzik efsanelerinin mirasını yaşatmak, genç nesillere bu eşsiz sanatı doğru ve kaliteli içeriklerle aktarmaktır.<br><br>
+            <strong>Gelecek Hedefimiz (Vizyon):</strong> Yalnızca bir blog olmaktan çıkıp, tüm müzik efsanelerini kapsayan, çoklu dil destekli ve görme/işitme engelli kullanıcılar için %100 erişilebilir en büyük dijital Türkçe müzik ansiklopedisi olmak.
           </p>
         </div>
-
-        <nav class="footer-nav" aria-label="Footer navigasyonu">
+        <nav class="footer-nav">
           <h3 class="footer-nav-title">Hızlı Erişim</h3>
           <ul class="footer-nav-list">
             <li><a href="#biography" class="footer-nav-link">Biyografi</a></li>
@@ -260,19 +274,14 @@
           </ul>
         </nav>
       </div>
-
       <hr class="footer-divider">
-
       <div class="footer-bottom">
         <p class="footer-copy">&copy; 2026 Nirvana Blog — Tüm hakları saklıdır.</p>
-        <p class="footer-tribute">
-          <span class="footer-heart">♥</span>
-          Kurt Cobain'in anısına saygıyla.
-        </p>
+        <p class="footer-tribute"><span class="footer-heart">♥</span> Kurt Cobain'in anısına saygıyla.</p>
       </div>
-
     </div>
   </footer>
+
   <script>
     const toggle  = document.querySelector('.nav-toggle');
     const navList = document.querySelector('.nav-list');
@@ -288,7 +297,38 @@
         toggle.setAttribute('aria-expanded', false);
       });
     });
+
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeToggleBtn.querySelector('.toggle-icon');
+    const themeText = themeToggleBtn.querySelector('.toggle-text');
+
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      if (currentTheme === 'dark') {
+        themeIcon.innerHTML = '&#x2600;';
+        themeText.innerText = 'Gündüz Modu';
+      } else {
+        themeIcon.innerHTML = '&#x2601;';
+        themeText.innerText = 'Gece Modu';
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      let theme = document.documentElement.getAttribute('data-theme');
+      if (theme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeIcon.innerHTML = '&#x2601;';
+        themeText.innerText = 'Gece Modu';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.innerHTML = '&#x2600;';
+        themeText.innerText = 'Gündüz Modu';
+      }
+    });
   </script>
-  <a href="#" class="scroll-top">↑</a>
+<a href="#" class="scroll-top">↑</a>
 </body>
 </html>
