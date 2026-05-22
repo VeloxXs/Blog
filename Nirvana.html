@@ -11,7 +11,19 @@
   
   <link rel="icon" type="image/jpeg" href="foto/favicon.jpeg">
   <title>Nirvana Blog</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- Critical CSS inline: header + hero -->
+  <style>
+    :root{--color-bg:#ffffff;--color-surface:#f8fafc;--color-accent:#1e90ff;--color-text:#0f172a}
+    body{background:var(--color-bg);color:var(--color-text);font-family:Georgia,serif}
+    .site-header{background:var(--color-surface);border-bottom:3px solid var(--color-accent);position:sticky;top:0}
+    .header-inner{max-width:1100px;margin:0 auto;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
+    .site-title{font-size:1.6rem;color:var(--color-accent);letter-spacing:3px;text-transform:uppercase}
+    .hero-container{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:30px 16px}
+    .circle-wrapper-inner{width:220px;height:220px;border-radius:50%;overflow:hidden}
+    .profile-img{width:100%;height:100%;object-fit:cover}
+  </style>
+  <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 
 <body>
@@ -32,16 +44,12 @@
             <span class="nav-toggle-bar"></span>
           </button>
           <ul class="nav-list">
-            <li class="nav-item"><a href="Blog.html" class="nav-link">MJ Sayfasına Dön</a></li>
+            <li class="nav-item"><a href="Blog.html" class="nav-link">ANA BLOG</a></li>
             <li class="nav-item"><a href="#biography" class="nav-link">Biyografi</a></li>
             <li class="nav-item"><a href="#albums"    class="nav-link">Albümler</a></li>
             <li class="nav-item"><a href="#legacy"    class="nav-link">Mirası</a></li>
           </ul>
         </nav>
-        
-        <button id="theme-toggle" class="theme-btn">
-          <span class="toggle-icon">&#x2600;</span> <span class="toggle-text">Gece Modu</span>
-        </button>
       </div>
 
     </div>
@@ -70,7 +78,7 @@
 
           <div class="circle-wrapper-inner">
             <div class="blue-background"></div>
-            <img src="foto/nirvana.png" alt="Nirvana Grubu Profil Fotoğrafı" class="profile-img nirvana-img" />
+            <img src="foto/nirvana.png" alt="Nirvana Grubu Profil Fotoğrafı" class="profile-img nirvana-img" loading="lazy" decoding="async" />
           </div>
 
         </div>
@@ -282,6 +290,7 @@
     </div>
   </footer>
 
+  <button id="theme-toggle" class="theme-btn-scroll" title="Gece/Gündüz Modu">🌙</button>
   <script>
     const toggle  = document.querySelector('.nav-toggle');
     const navList = document.querySelector('.nav-list');
@@ -299,19 +308,10 @@
     });
 
     const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeIcon = themeToggleBtn.querySelector('.toggle-icon');
-    const themeText = themeToggleBtn.querySelector('.toggle-text');
-
     const currentTheme = localStorage.getItem('theme');
+
     if (currentTheme) {
       document.documentElement.setAttribute('data-theme', currentTheme);
-      if (currentTheme === 'dark') {
-        themeIcon.innerHTML = '&#x2600;';
-        themeText.innerText = 'Gündüz Modu';
-      } else {
-        themeIcon.innerHTML = '&#x2601;';
-        themeText.innerText = 'Gece Modu';
-      }
     }
 
     themeToggleBtn.addEventListener('click', () => {
@@ -319,16 +319,27 @@
       if (theme === 'dark') {
         document.documentElement.removeAttribute('data-theme');
         localStorage.setItem('theme', 'light');
-        themeIcon.innerHTML = '&#x2601;';
-        themeText.innerText = 'Gece Modu';
       } else {
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
-        themeIcon.innerHTML = '&#x2600;';
-        themeText.innerText = 'Gündüz Modu';
       }
     });
   </script>
-<a href="#" class="scroll-top">↑</a>
+  <script>
+    // Lazy-load CSS silhouette backgrounds for album cards
+    const lazyBgObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('lazy-loaded');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    document.querySelectorAll('.card-2pac, .card-nirvana, .card-queen, .card-elvis').forEach(el => {
+      lazyBgObserver.observe(el);
+    });
+  </script>
+  <a href="#" class="scroll-top">↑</a>
 </body>
 </html>

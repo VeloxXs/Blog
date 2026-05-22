@@ -11,20 +11,22 @@
    2. RENK PALETİ (Gündüz Modu)
 ================================ */
 :root {
-  --color-bg:      #f4f6f9;
-  --color-surface: #ffffff;
-  --color-accent:  #27BBF5;
-  --color-text:    #2c3e50;
-  --color-muted:   #7f8c8d;
+  /* Contrast-focused palette (light mode) */
+  --color-bg:      #ffffff;      /* pure white for max contrast */
+  --color-surface: #f8fafc;      /* very light surface */
+  --color-accent:  #1e90ff;      /* clear, accessible blue */
+  --color-text:    #0f172a;      /* very dark slate for readable text */
+  --color-muted:   #6b7280;      /* mid gray for secondary text */
 }
 
 /* YÜKSEK KONTRAST / GECE MODU (Erişilebilirlik Kriteri) */
 [data-theme="dark"] {
-  --color-bg:      #121212; /* Koyu arka plan */
-  --color-surface: #1e1e1e; /* Koyu kutu arka planları */
-  --color-accent:  #FFD700; /* Görme zorluğu olanlar için yüksek kontrastlı Sarı vurgu */
-  --color-text:    #f5f6fa; /* Açık renk okunaklı yazı */
-  --color-muted:   #a4b0be; /* Açık gri ikincil yazılar */
+  /* Contrast-focused palette (dark mode) */
+  --color-bg:      #0b1220;   /* deep navy background */
+  --color-surface: #111827;   /* dark surface for cards */
+  --color-accent:  #60a5fa;   /* brighter blue accent on dark */
+  --color-text:    #e6eef8;   /* very light text for readability */
+  --color-muted:   #9ca3af;   /* lighter muted color */
 }
 
 /* Gece Modu Butonu Tasarımı */
@@ -380,28 +382,48 @@ body {
 /* --- EFSANEVİ SANATÇILAR ÖZEL SİLUETLERİ --- */
 /* 1. 2Pac Silueti */
 .card-2pac::before {
-  background-image: url('foto/2pac-silhouette.png');
   background-position: center bottom; /* Sağa yaslıydı, ortaya aldık */
   background-size: 285%; /* 80%'den 140%'a çıkardık ki kafası tam otursun */
+  background-repeat: no-repeat;
+  background-image: none;
+}
+
+.card-2pac.lazy-loaded::before {
+  background-image: url('foto/2pac-silhouette.png');
 }
 
 .card-nirvana::before {
-  background-image: url('foto/nirvana-silhouette.png');
   background-position: center bottom;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-image: none;
+}
+
+.card-nirvana.lazy-loaded::before {
+  background-image: url('foto/nirvana-silhouette.png');
 }
 
 .card-queen::before {
-  background-image: url('foto/queen-silhouette.png');
   /* right kelimesi yerine 110% veya daha büyük bir değer yazıyoruz */
   background-position: 50% center; 
   background-size: 170%;
+  background-repeat: no-repeat;
+  background-image: none;
+}
+
+.card-queen.lazy-loaded::before {
+  background-image: url('foto/queen-silhouette.png');
 }
 
 .card-elvis::before {
-  background-image: url('foto/elvis-silhouette.png');
   background-position: 50% center; 
   background-size: 160%;
+  background-repeat: no-repeat;
+  background-image: none;
+}
+
+.card-elvis.lazy-loaded::before {
+  background-image: url('foto/elvis-silhouette.png');
 }
 
 /* İçeriklerin Tipografisi */
@@ -761,6 +783,42 @@ body {
   font-size: 20px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] .scroll-top {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+/* Scroll-follow theme toggle button */
+.theme-btn-scroll {
+  position: fixed;
+  bottom: 90px;
+  right: 40px;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-btn-scroll:hover {
+  background-color: var(--color-text);
+  transform: scale(1.1);
+}
+
+.theme-btn-scroll:active {
+  transform: scale(0.95);
 }
 
 /* 2Pac fotoğrafı için özel düzeltme */

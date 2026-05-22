@@ -11,7 +11,25 @@
   
   <link rel="icon" type="image/jpeg" href="foto/favicon.jpeg">
   <title>Michael Jackson Blog</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- Critical CSS inline: header + hero (reduces render-blocking) -->
+  <style>
+    :root{--color-bg:#ffffff;--color-surface:#f8fafc;--color-accent:#1e90ff;--color-text:#0f172a;--color-muted:#6b7280}
+    html,body{background:var(--color-bg);color:var(--color-text);font-family:Georgia,'Times New Roman',serif;margin:0}
+    .site-header{background:var(--color-surface);border-bottom:3px solid var(--color-accent);position:sticky;top:0;z-index:1000}
+    .header-inner{max-width:1100px;margin:0 auto;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
+    .site-title{font-size:1.6rem;color:var(--color-accent);letter-spacing:3px;text-transform:uppercase}
+    .site-tagline{font-size:.8rem;color:var(--color-muted);margin-top:.25rem}
+    .nav-list{list-style:none;display:flex;gap:1.25rem}
+    .nav-link{color:var(--color-text);text-decoration:none;font-size:.9rem;text-transform:uppercase}
+    .hero-container{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:30px 16px}
+    .hero-text-content{flex:1;padding-right:30px}
+    .hero-greeting{font-family:"Helvetica Neue",sans-serif;font-size:2rem;font-weight:700;margin-bottom:12px;color:var(--color-text)}
+    .btn-primary-blue{padding:10px 18px;border-radius:40px;background:var(--color-accent);color:#fff;text-decoration:none;display:inline-block}
+    .circle-wrapper-inner{width:220px;height:220px;border-radius:50%;position:relative;overflow:hidden}
+    .profile-img{width:100%;height:100%;position:absolute;top:0;left:0;object-fit:cover}
+  </style>
+  <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 
 <body>
@@ -34,7 +52,6 @@
           <li class="nav-item"><a href="#biography" class="nav-link">Biyografi</a></li>
           <li class="nav-item"><a href="#albums"    class="nav-link">Albümler</a></li>
           <li class="nav-item"><a href="#dances"    class="nav-link">Danslar</a></li>
-          <li class="nav-item"><button id="theme-toggle" class="theme-btn">🌙 Gece Modu</button></li>
         </ul>
       </nav>
 
@@ -65,7 +82,7 @@
 
           <div class="circle-wrapper-inner">
             <div class="blue-background"></div>
-            <img src="foto/açık.png" alt="Michael Jackson" class="profile-img" />
+            <img src="foto/açık.webp" alt="Michael Jackson" class="profile-img" loading="lazy" decoding="async" />
           </div>
 
         </div>
@@ -337,7 +354,6 @@
         <div class="footer-brand">
           <h2 class="footer-logo">MJ Blog</h2>
           <div class="footer-brand">
-          <h2 class="footer-logo">MJ Blog</h2>
           <p class="footer-desc">
             <strong>Misyonumuz:</strong> King of Pop'un ve diğer müzik efsanelerinin mirasını yaşatmak, genç nesillere bu eşsiz sanatı doğru ve kaliteli içeriklerle aktarmaktır.<br><br>
             <strong>Gelecek Hedefimiz (Vizyon):</strong> Yalnızca bir blog olmaktan çıkıp, tüm müzik efsanelerini kapsayan, çoklu dil destekli ve görme/işitme engelli kullanıcılar için %100 erişilebilir en büyük dijital Türkçe müzik ansiklopedisi olmak.
@@ -368,6 +384,7 @@
     </div>
   </footer>
   
+  <button id="theme-toggle" class="theme-btn-scroll" title="Gece/Gündüz Modu">🌙</button>
   <script>
     const toggle  = document.querySelector('.nav-toggle');
     const navList = document.querySelector('.nav-list');
@@ -392,7 +409,7 @@
     if (currentTheme) {
       document.documentElement.setAttribute('data-theme', currentTheme);
       if (currentTheme === 'dark') {
-        themeToggleBtn.innerText = '☀️ Gündüz Modu';
+        themeToggleBtn.innerText = '☀️';
       }
     }
 
@@ -401,12 +418,26 @@
       if (theme === 'dark') {
         document.documentElement.removeAttribute('data-theme');
         localStorage.setItem('theme', 'light');
-        themeToggleBtn.innerText = '🌙 Gece Modu';
+        themeToggleBtn.innerText = '🌙';
       } else {
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
-        themeToggleBtn.innerText = '☀️ Gündüz Modu';
+        themeToggleBtn.innerText = '☀️';
       }
+    });
+
+    // Lazy-load CSS silhouette backgrounds when album cards enter viewport
+    const lazyBgObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('lazy-loaded');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    document.querySelectorAll('.card-2pac, .card-nirvana, .card-queen, .card-elvis').forEach(el => {
+      lazyBgObserver.observe(el);
     });
   </script>
   
