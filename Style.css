@@ -8,7 +8,7 @@
 }
 
 /* ================================
-   2. RENK PALETİ
+   2. RENK PALETİ (Gündüz Modu)
 ================================ */
 :root {
   --color-bg:      #f4f6f9;
@@ -16,6 +16,32 @@
   --color-accent:  #27BBF5;
   --color-text:    #2c3e50;
   --color-muted:   #7f8c8d;
+}
+
+/* YÜKSEK KONTRAST / GECE MODU (Erişilebilirlik Kriteri) */
+[data-theme="dark"] {
+  --color-bg:      #121212; /* Koyu arka plan */
+  --color-surface: #1e1e1e; /* Koyu kutu arka planları */
+  --color-accent:  #FFD700; /* Görme zorluğu olanlar için yüksek kontrastlı Sarı vurgu */
+  --color-text:    #f5f6fa; /* Açık renk okunaklı yazı */
+  --color-muted:   #a4b0be; /* Açık gri ikincil yazılar */
+}
+
+/* Gece Modu Butonu Tasarımı */
+.theme-btn {
+  background: none;
+  border: 1px solid var(--color-accent);
+  color: var(--color-text);
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+.theme-btn:hover {
+  background: var(--color-accent);
+  color: var(--color-surface);
 }
 
 /* ================================
@@ -356,7 +382,7 @@ body {
 .card-2pac::before {
   background-image: url('foto/2pac-silhouette.png');
   background-position: center bottom; /* Sağa yaslıydı, ortaya aldık */
-  background-size: 250%; /* 80%'den 140%'a çıkardık ki kafası tam otursun */
+  background-size: 285%; /* 80%'den 140%'a çıkardık ki kafası tam otursun */
 }
 
 .card-nirvana::before {
@@ -367,14 +393,15 @@ body {
 
 .card-queen::before {
   background-image: url('foto/queen-silhouette.png');
-  background-position: right center;
-  background-size: 120%;
+  /* right kelimesi yerine 110% veya daha büyük bir değer yazıyoruz */
+  background-position: 50% center; 
+  background-size: 170%;
 }
 
 .card-elvis::before {
   background-image: url('foto/elvis-silhouette.png');
-  background-position: left bottom;
-  background-size: 125%;
+  background-position: 50% center; 
+  background-size: 160%;
 }
 
 /* İçeriklerin Tipografisi */

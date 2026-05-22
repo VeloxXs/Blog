@@ -4,6 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="description" content="Michael Jackson ve efsanevi sanatçıların hayatı, albümleri ve ikonik danslarını anlatan geniş kapsamlı bir müzik bloğu.">
+  <meta name="keywords" content="Michael Jackson, 2Pac, Nirvana, Queen, Elvis Presley, Müzik, Biyografi, Rock, Pop, Rap">
+  <meta name="author" content="Sinan">
+  
   <link rel="icon" type="image/jpeg" href="foto/favicon.jpeg">
   <title>Michael Jackson Blog</title>
   <link rel="stylesheet" href="style.css">
@@ -19,7 +24,7 @@
         <p class="site-tagline">King of Pop'un Dünyasına Hoş Geldiniz</p>
       </div>
 
-      <nav class="main-nav">
+     <nav class="main-nav">
         <button class="nav-toggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
           <span class="nav-toggle-bar"></span>
           <span class="nav-toggle-bar"></span>
@@ -29,6 +34,7 @@
           <li class="nav-item"><a href="#biography" class="nav-link">Biyografi</a></li>
           <li class="nav-item"><a href="#albums"    class="nav-link">Albümler</a></li>
           <li class="nav-item"><a href="#dances"    class="nav-link">Danslar</a></li>
+          <li class="nav-item"><button id="theme-toggle" class="theme-btn">🌙 Gece Modu</button></li>
         </ul>
       </nav>
 
@@ -330,10 +336,13 @@
       <div class="footer-top">
         <div class="footer-brand">
           <h2 class="footer-logo">MJ Blog</h2>
+          <div class="footer-brand">
+          <h2 class="footer-logo">MJ Blog</h2>
           <p class="footer-desc">
-            King of Pop'un müziğini, dansını ve mirasını yaşatmak için
-            hazırlanmış bir hayran sitesidir.
+            <strong>Misyonumuz:</strong> King of Pop'un ve diğer müzik efsanelerinin mirasını yaşatmak, genç nesillere bu eşsiz sanatı doğru ve kaliteli içeriklerle aktarmaktır.<br><br>
+            <strong>Gelecek Hedefimiz (Vizyon):</strong> Yalnızca bir blog olmaktan çıkıp, tüm müzik efsanelerini kapsayan, çoklu dil destekli ve görme/işitme engelli kullanıcılar için %100 erişilebilir en büyük dijital Türkçe müzik ansiklopedisi olmak.
           </p>
+        </div>
         </div>
 
         <nav class="footer-nav" aria-label="Footer navigasyonu">
@@ -374,7 +383,33 @@
         toggle.setAttribute('aria-expanded', false);
       });
     });
+
+    // ERİŞİLEBİLİRLİK: Gece Modu / Yüksek Kontrast İşlevi
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+
+    // Kullanıcının önceki tercihini hatırla
+    if (currentTheme) {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      if (currentTheme === 'dark') {
+        themeToggleBtn.innerText = '☀️ Gündüz Modu';
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      let theme = document.documentElement.getAttribute('data-theme');
+      if (theme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeToggleBtn.innerText = '🌙 Gece Modu';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggleBtn.innerText = '☀️ Gündüz Modu';
+      }
+    });
   </script>
+  
   <a href="#" class="scroll-top">↑</a>
 </body>
 </html>
